@@ -1,4 +1,4 @@
-def data_extranction():
+def _extract_data():
     data = dict()
     data['date'] = '15 September 2021'
     data['time'] = '07:49:47 WIB'
@@ -10,6 +10,10 @@ def data_extranction():
         'Dirasakan (Skala MMI): III Boalemo, II - III Buol, II Manado, II Bone Bolango, II Gorontalo, II Toli-toli'
 
     return data
+
+
+def get_data():
+    return _extract_data()
 
 
 def console_print(result):

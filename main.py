@@ -1,8 +1,8 @@
 """
 Latest Earthquake Detection Package
 """
-from eqid import data_extranction, console_print
+import eqid
 
 if __name__ == '__main__':
-    result = data_extranction()
-    console_print(result)
+    result = eqid.get_data()
+    eqid.console_print(result)
