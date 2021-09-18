@@ -21,12 +21,14 @@ def _extract_data():
     depth = result[2].text
 
     location_raw = result[3].text
-    location_raw = location_raw.split(' LS - ')
+    location_raw = location_raw.split(' - ')
     lat = location_raw[0]
-    long = location_raw[1].replace(' BT', '')
+    lat = lat[0:lat.find(' ')]
+    long = location_raw[1]
+    long = long[0:long.find(' ')]
 
     center_desc = result[4].text
-    affected_desc = result[5].text
+    desc = result[5].text
 
     data = dict()
     data['date'] = date
@@ -35,7 +37,7 @@ def _extract_data():
     data['depth'] = 20
     data['location'] = {'lat': lat, 'long': long}
     data['center_desc'] = center_desc
-    data['affected_desc'] = affected_desc
+    data['desc'] = desc
 
     return data
 
@@ -51,4 +53,4 @@ def console_print(result):
     print(f"Magnitude: {result['magnitude']}")
     print(f"Location: Latitude={result['location']['lat']} longitude={result['location']['long']}")
     print(f"Center: {result['center_desc']}")
-    print(f"Affected: {result['affected_desc']}")
+    print(f"Description: {result['desc']}")
