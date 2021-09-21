@@ -25,5 +25,7 @@ setuptools.setup(
         'beautifulsoup4==4.10.0',
         'requests==2.26.0',
     ],
+    test_suite='nose.collector',
+    tests_require=['nose'],
     python_requires=">=3.6",
 )
